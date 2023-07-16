@@ -3,16 +3,12 @@
 @section('title', 'Cursos Index')
 
 @section('content')
-    <h1>Cursos INDEX</h1>
 
-    {{-- <h1>Bienvenido a la página principal de cursos</h1>
-    <a href="{{route('cursos.create')}}">Crear curso</a>
+    <h1>Bienvenido a la página CURSOS INDEX de cursos</h1>
     <ul>
         @foreach ($cursos as $curso)
-            <li>
-                <a href="{{route('cursos.show', $curso)}}">{{$curso->name}}</a>
-            </li>
+            <li>{{ $curso->name }}</li>
         @endforeach
     </ul>
-    {{$cursos->links()}} --}}
+
 @endsection

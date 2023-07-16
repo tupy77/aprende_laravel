@@ -26,7 +26,7 @@ Route::controller(CursoController::class)->group(function () {
 
 //TAMBIEN SE PUEDE HACER ASI
 // Route::group(['prefix' => 'cursos'], function () {
-//         Route::get('/', [CursoController::class, 'index']);
+//         Route::get('/', [CursoController::class, 'index']); //CADA UNO DE ESTOS GET SE PUEDEN PONER POR INDIVIDUAL
 //         Route::get('create', [CursoController::class, 'create']);
 //         Route::get('{curso}', [CursoController::class, 'show']);
 //     });

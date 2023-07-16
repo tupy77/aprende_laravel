@@ -9,8 +9,10 @@ class CursoController extends Controller
 {
     public function index()
     {
-        $cursos = Curso::all();
-        //return $cursos;
+        $cursos = Curso::paginate(); //DENTRO DE LOS PARENTESIS SE PUEDE PONER EL NUMERO DE REGISTROS POR PAGINA. Se paginan los cursos pero habria que escribir en el cliente cursos?page=2 ... para ver la segunda pagina y asi sucesivamente. Para que no sea necesario se tendria que modificar la vista añadiendo lo siguiente:
+        // {{ $cursos->links() }}
+
+
         return view('cursos.index', compact('cursos'));
     }
 
@@ -19,10 +21,12 @@ class CursoController extends Controller
         return view('cursos.create');
     }
 
-    public function show($curso)
+    public function show($id)
     {
-        return view('cursos.show', ['curso' => $curso]);
-        // OTRO MODO
-        //return view('cursos.show', compact('curso'));
+        $curso = Curso::find($id); //PARA RECUPERAR UN REGISTRO COMPLETO POR SU ID
+
+        return view('cursos.show', compact('curso'));
+    // OTRO MODO
+        // return view('cursos.show', ['curso' => $curso]);
     }
 }

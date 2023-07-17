@@ -15,7 +15,7 @@
             <br>
             <input type="text" name="name" value="{{old('name')}}">
         </label>
-
+        {{-- Estas lineas de @error son para mostrar los errores de validación --}}
         @error('name')
             <br>
             <small>*{{$message}}</small>

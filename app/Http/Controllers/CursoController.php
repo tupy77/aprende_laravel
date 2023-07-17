@@ -20,6 +20,13 @@ class CursoController extends Controller
     }
 
     public function store(Request $request) {
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'category' => 'required'
+        ]);
+
         $curso = new Curso();
         $curso->name = $request->name;
         $curso->description = $request->description;
@@ -38,6 +45,13 @@ class CursoController extends Controller
     }
 
     public function update(Request $request, Curso $curso){
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'category' => 'required'
+        ]);
+        
         $curso->name = $request->name;
         $curso->description = $request->description;
         $curso->category = $request->category;

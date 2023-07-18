@@ -9,13 +9,14 @@ class Curso extends Model
 {
     use HasFactory;
 
-    //ESTO ES PARA LA ASIGNACION MASIVA. SI NO SE AÑADE ESTO, NO SE PODRA HACER LA ASIGNACION MASIVA. SE PONEN LOS CAMPOS QUE QUEREMOS QUE SE AÑADAN CON ESTE TIPO DE ASIGNACION.
-    protected $fillable = ['name', 'description', 'category']; 
+    // protected $fillable = ['name', 'description', 'category']; 
+    protected $guarded = [];
 
-    
-    // SE PONEN LOS CAMPOS QUE NO QUEREMOS QUE SE AÑADAN CON ESTE TIPO DE ASIGNACION. SI TUVIERAMOS 50 CAMPOS PERO SOLO QUEREMOS QUE NO SE AÑADAN 2, EN VEZ DE PONER LOS 48 CAMPOS, PONEMOS LOS 2 QUE NO QUEREMOS QUE SE AÑADAN.
+    // para generar url amigable
+    // MEJOR MODIFICARLO AQUI EN EL MODELO QUE EN LA CLASE MODEL
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
-    // protected $guarded = ['status']; 
-
-    // SI DEJARAMOS EL ARRAY DEL GUARDED VACIO, HARIA EL MISMO EFECTO QUE FILLABLE PERO SIN LA NECESIDAD DE PONER LOS CAMPOS QUE QUEREMOS QUE SE AÑADAN CON ESTE TIPO DE ASIGNACION.
 }

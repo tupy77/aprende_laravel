@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            // para generar url amigable
+            $table->string('slug');
             $table->text('description');
             $table->text('category');
             $table->timestamps();

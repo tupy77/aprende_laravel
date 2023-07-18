@@ -15,6 +15,8 @@ use App\Http\Controllers\CursoController;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos'); // SI NO SE PONE PARAMETERS DARIA ERROR, YA QUE MODIFICAMOS EL NOMBRE DE LA URL Y EL DE LOS  PARAMETROS QUE SE ENVIAN, O SE CAMBIAN TODO ESO EN TODAS LAS VIEWS, O SE PONE LA FUNCION PARAMETERS PARA CAMBIARLO Y DEJAR QUE SIGAN COMO ESTABAN//->parameters(['asignaturas' => 'curso']); //->only(['index', 'show', 'create', 'store', 'edit', 'update', 'destroy']); //->except(['edit', 'update', 'destroy']);
+
+Route::view('nosotros', 'nosotros')->name('nosotros'); // Se pone view en vez de get, ya que no se va a hacer ninguna consulta a la base de datos, solo se va a mostrar una vista, pagina estatica...etc

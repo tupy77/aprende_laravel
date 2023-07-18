@@ -13,34 +13,15 @@
             font-weight: bold;
         }
     </style>
-    
+
 </head>
 <body>
 
-    <header>
-        <h1>Pagina de cursos</h1>
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="{{ route('home') }}">Inicio</a>
-                    <?php
-                        dump(request()->routeIs('home')); //esto devuelve true o false si la ruta es la que se indica
-                    ?>
-                </li>
-                <li>
-                    <a href="{{ route('cursos.index') }}">Cursos</a>
-                    @dump(request()->routeIs('cursos.*'))<!-- esto es lo mismo que lo de arriba -->
-                </li>
-                <li>
-                    <a href="{{ route('nosotros') }}" class="{{ request()->routeIs('nosotros') ? 'active' : '' }}" >Nosotros</a> <!--con el dump vemos que devuelve true o false y ahora lo que hacemos es que si es true se ponga la clase 'active' -->
-                </li>
-            </ul>
-        </nav>
-
-    </header>
+    @include('layouts.partials.header')
 
     @yield('content')
+
+    @include('layouts.partials.footer')
     
 </body>
 </html>

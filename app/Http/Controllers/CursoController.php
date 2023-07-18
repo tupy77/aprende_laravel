@@ -23,11 +23,24 @@ class CursoController extends Controller
 
     public function store(StoreCurso $request) {
 
-        $curso = new Curso();
-        $curso->name = $request->name;
-        $curso->description = $request->description;
-        $curso->category = $request->category;
-        $curso->save();
+        // // ANTIGUA FORMA
+        // $curso = new Curso();
+        // $curso->name = $request->name;
+        // $curso->description = $request->description;
+        // $curso->category = $request->category;
+        // $curso->save();
+
+        //ASIGNACION MASIVA:
+
+        // EL PASO 1 SERIA EL SIGUIENTE:
+        // $curso = Curso::create([
+        //     'name' => $request->name,
+        //     'description' => $request->description,
+        //     'category' => $request->category
+        // ]);
+        
+        //LO ANTERIOR VALDRIA PERO PODRIAMOS PASARLE EL ARRAY DE LA SIGUIENTE FORMA:
+        $curso = Curso::create($request->all()); // SI NO SE AÑADE LA PROPIEDAD FILLABLE EN EL MODELO, NO SE PODRA HACER ESTO. HAY QUE AÑADIRLA PARA QUE SE PUEDA HACER LA ASIGNACION MASIVA.
 
         return redirect()->route('cursos.show', $curso);
     }
@@ -48,10 +61,7 @@ class CursoController extends Controller
             'category' => 'required'
         ]);
         
-        $curso->name = $request->name;
-        $curso->description = $request->description;
-        $curso->category = $request->category;
-        $curso->save();
+        $curso->update($request->all()); // ASIGNACION MASIVA EN EL UPDATE. SI NO SE AÑADE LA PROPIEDAD FILLABLE EN EL MODELO, NO SE PODRA HACER ESTO. HAY QUE AÑADIRLA PARA QUE SE PUEDA HACER LA ASIGNACION MASIVA.
 
         return redirect()->route('cursos.show', $curso);
     }

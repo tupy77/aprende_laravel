@@ -18,6 +18,9 @@
 
 @endphp
 
+{{-- {{ dump($attributes) }} --}}
+{{-- Con esto podemos ver los atributos que se le pasan al componente, fijate que el 'id' no esta en los props sin embargo si esta la variable dentro de attributes--}}
+
 <div class="bg-white py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <dl class="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
@@ -40,7 +43,7 @@
     </div>
 </div>
 
-<article class=" border-1-4 p-4 {{ $classes }} " role="alert">
+<article id="{{$attributes}}" class=" border-1-4 p-4 {{ $classes }} " role="alert">
     <h1 class="font-bold">{{ $alert_header }}</h1>
     <p>{{ $alert_text }}</p>
 </article>

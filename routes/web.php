@@ -19,13 +19,16 @@ use App\Http\Controllers\ContactanosController;
 */
 
 //quiero que se conecte a la principal de jetstream
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-// Route::get('/', HomeController::class)->name('home');
+//METIDO EN EL HOMECONTROLER LA VIEW DE JETSTREAM
+Route::get('/', HomeController::class)->name('home');
 
-Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
+// Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
+// VOLVEMOS A PONER EL NOMBRE DE CURSOS
+Route::resource('cursos', CursoController::class)->names('cursos');
 
 Route::view('nosotros', 'nosotros')->name('nosotros');
 

@@ -8,6 +8,6 @@ class HomeController extends Controller
 {
     public function __invoke() // __invoke() is a magic method
     {
-        return view('home');
+        return view('welcome');
     }
 }

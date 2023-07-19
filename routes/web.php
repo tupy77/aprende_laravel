@@ -18,7 +18,12 @@ use App\Http\Controllers\ContactanosController;
 |
 */
 
-Route::get('/', HomeController::class)->name('home');
+//quiero que se conecte a la principal de jetstream
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Route::get('/', HomeController::class)->name('home');
 
 Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
 
@@ -29,3 +34,13 @@ Route::controller(ContactanosController::class)->prefix('contactanos')->group(fu
     Route::post('/', 'store')->name('contactanos.store');
 });
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

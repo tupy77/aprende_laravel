@@ -9,8 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <x-welcome />
-                <x-stats title="Titulo de prueba" description="Descripcion">
-                    Millones
+                <x-stats>
+                    <x-slot name="title">Transactions every 24 hours</x-slot>
+                    <x-slot name="description">This is a description</x-slot>
+                    44 million
                 </x-stats>
             </div>
         </div>

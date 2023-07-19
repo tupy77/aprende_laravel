@@ -19,7 +19,7 @@
                 @endphp
 
                 {{-- Cuidado con los dos puntos antes del nombre de la variable --}}
-                <x-stats :title="$title" :description="$description" :type="$type" :alert_header="$alert_header" :alert_text="$alert_text" id="test">
+                <x-stats :title="$title" :description="$description" :type="$type" :alert_header="$alert_header" :alert_text="$alert_text" id="test" class="mb-4">
                     44 million
                 </x-stats>
 

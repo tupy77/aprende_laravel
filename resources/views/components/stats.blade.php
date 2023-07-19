@@ -43,7 +43,14 @@
     </div>
 </div>
 
-<article id="{{$attributes}}" class=" border-1-4 p-4 {{ $classes }} " role="alert">
+{{-- Lo de ahora se hace porque no pueden haber dos atributos class dentro de article. Entonces habria que unir los existentes con los que se pasan por parametro --}}
+<article {{ $attributes->merge(['class' => "border-1-4 p-4 $classes"]) }} role="alert">
+    <h1 class="font-bold">{{ $alert_header }}</h1>
+    <p>{{ $alert_text }}</p>
+</article>
+
+{{-- Otra forma de hacerlo es la siguiente (asi estaria preparado por si algun dia se le pasa el role tambien, OJO, COMBINA CLASS, NO OTROS ATRIBUTOS, EN CASO DE OTROS ATRIBUTOS LOS SUSTITUYE) --}}
+<article {{ $attributes->merge(['class' => "border-1-4 p-4 $classes", "role" => 'alert']) }}>
     <h1 class="font-bold">{{ $alert_header }}</h1>
     <p>{{ $alert_text }}</p>
 </article>

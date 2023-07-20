@@ -19,9 +19,15 @@
                 @endphp
 
                 {{-- Cuidado con los dos puntos antes del nombre de la variable --}}
-                <x-stats :title="$title" :description="$description" :type="$type" :alert_header="$alert_header" :alert_text="$alert_text" id="test" class="mb-4">
+                <x-alert2 :title="$title" :description="$description" :type="$type" id="test" class="mb-4">
                     44 million
-                </x-stats>
+                    <x-slot name="alert_header">
+                        {{ $alert_header }}
+                    </x-slot>
+                    <x-slot name="alert_text">
+                        {{ $alert_text }}
+                    </x-slot>
+                </x-alert2>
 
             </div>
         </div>
